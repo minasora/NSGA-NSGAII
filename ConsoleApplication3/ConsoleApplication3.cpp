@@ -37,7 +37,7 @@ vector<Solution> population;//解的集合
 /********************函数*******************/
 double random_number(int x, int y)//返回[x,y]间的随机数
 {
-	return x + (rand() / RAND_MAX)*(y - x);
+	return x + (rand() / (RAND_MAX * 1.0))*(y - x);
 }
 int rand_0_1()//随机生成0和1
 {
@@ -46,7 +46,7 @@ int rand_0_1()//随机生成0和1
 void calculate_f(Solution &a)//计算目标函数值
 {
 	a.y1 = a.x1;
-	a.y2 = (1 + 10 * a.x2)*(1 - (a.x1 / 1 + 10 * a.x2)*(a.x1 / 1 + 10 * a.x2) - a.x1 / 1 + 10 * a.x2*sin(8 * PI * a.x1));//DEB函数
+	a.y2 = (1 + 10 * a.x2)*(1 - ((a.x1 / (1 + 10 * a.x2))*(a.x1 / (1 + 10 * a.x2)) - (a.x1 *  sin(8 * PI * a.x1)) / (1 + 10 * a.x2)));//DEB函数
 }
 void init()//初始化
 {
